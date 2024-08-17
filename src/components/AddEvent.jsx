@@ -17,7 +17,9 @@ const AddEvent = ({ onAddEvent }) => {
       end,
     };
 
-    fetch('/api/events', {
+    console.log(newEvent);
+
+    fetch('https://calendarapp-server.onrender.com/api/events', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

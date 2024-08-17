@@ -9,7 +9,7 @@ const App = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch('/api/events')
+    fetch('https://calendarapp-server.onrender.com/api/events')
       .then(response => response.json())
       .then(data => setEvents(data));
   }, []);

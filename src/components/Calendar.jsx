@@ -29,7 +29,7 @@ const Calendar = () => {
   const [end, setEnd] = useState("");
 
   useEffect(() => {
-    fetch("/api/events")
+    fetch("https://calendarapp-server.onrender.com/api/events")
       .then((response) => response.json())
       .then((data) => setEvents(data));
   }, []);
@@ -54,7 +54,7 @@ const Calendar = () => {
       end: end,
     };
 
-    fetch("/api/events", {
+    fetch("https://calendarapp-server.onrender.com/api/events", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const Calendar = () => {
   };
 
   const handleDeleteEvent = (id) => {
-    fetch(`/api/events?id=${id}`, {
+    fetch(`https://calendarapp-server.onrender.com/api/events?id=${id}`, {
       method: "DELETE",
     }).then(() => {
       setEvents((prevEvents) => prevEvents.filter((event) => event.id !== id));
