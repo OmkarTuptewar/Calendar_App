@@ -6,6 +6,7 @@ import { Box } from '@chakra-ui/react';
 
 
 const App = () => {
+
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -17,18 +18,8 @@ const App = () => {
   const handleAddEvent = (newEvent) => {
     setEvents(prevEvents => [...prevEvents, newEvent]);
   };
+     
 
-  const handleDeleteEvent = (id) => {
-    setEvents(prevEvents => prevEvents.filter(event => event.id !== id));
-  };
-
-  const handleEditEvent = (updatedEvent) => {
-    setEvents(prevEvents =>
-      prevEvents.map(event =>
-        event.id === updatedEvent.id ? updatedEvent : event
-      )
-    );
-  };
 
   return (
     <>
@@ -48,8 +39,8 @@ const App = () => {
     >
       <Calendar
         events={events}
-        onDeleteEvent={handleDeleteEvent}
-        onEditEvent={handleEditEvent}
+        setEvents={setEvents}
+    
       />
     </Box>
 

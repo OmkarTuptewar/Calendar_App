@@ -19,9 +19,9 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 
-const Calendar = () => {
+const Calendar = ({ events, setEvents }) => {
+
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -29,6 +29,7 @@ const Calendar = () => {
   const [end, setEnd] = useState("");
 
   useEffect(() => {
+    
     fetch("https://calendarapp-server.onrender.com/api/events")
       .then((response) => response.json())
       .then((data) => setEvents(data));

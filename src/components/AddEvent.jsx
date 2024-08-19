@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Button, Input, Box, FormLabel } from '@chakra-ui/react';
 
 const AddEvent = ({ onAddEvent }) => {
+
+   
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
-
+  
   const handleSubmit = () => {
     if (!title.trim()) return;
 
